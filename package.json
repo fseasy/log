@@ -1,0 +1,16 @@
+{
+  "name": "log",
+  "version": "1.0.0",
+  "description": "Log daily",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-theme": "git submodule update --remote --merge",
+    "newday": "month=$(date '+%Y-%m'); day=$(date '+%d');  hugo new --kind default \"log/${month}/${day}.md\"",
+    "serve": "hugo server --bind 0.0.0.0 --port 4500 --disableFastRender"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.1"
+}
