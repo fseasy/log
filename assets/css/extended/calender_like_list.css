@@ -1,0 +1,111 @@
+/* --- Weekly Calendar Layout --- */
+
+/* 1. Group Container */
+.week-block {
+    margin-bottom: 50px;
+    padding-left: 25px;
+    border-left: 3px solid var(--primary); /* PaperMod Primary Color */
+    position: relative;
+}
+
+/* 2. Week Header (e.g. Week 42 January 2024) */
+.week-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    margin-top: -5px;
+}
+
+.week-badge {
+    background: var(--primary);
+    color: var(--theme); /* Text color inverse */
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.week-label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+/* 3. Grid Layout */
+.posts-grid {
+    display: grid;
+    /* Responsive Grid: Cards min-width 280px, fills available space */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+/* 4. Card Styling */
+.post-card {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* Important: Override PaperMod's default list bottom margin */
+    margin-bottom: 0 !important; 
+    height: 100%; /* Ensures cards in same row have equal height */
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+}
+
+/* Clickable Area Overlay */
+.post-card .entry-link {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+}
+
+/* Card Content Area */
+.post-card-body {
+    padding: 20px;
+    flex-grow: 1; /* Pushes footer to bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Image Tweaks */
+.post-card .entry-cover {
+    margin: 0;
+}
+.post-card .entry-cover img {
+    border-radius: 0;
+    height: 180px; /* Fixed height for uniformity */
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Typography Overrides */
+.post-card .entry-header h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.post-card .entry-content {
+    font-size: 0.95rem;
+    color: var(--secondary);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.post-card .entry-footer {
+    padding: 0 20px 20px 20px;
+    font-size: 0.8rem;
+    margin-top: auto;
+    border-top: 1px solid transparent;
+}

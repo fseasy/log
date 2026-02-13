@@ -1,0 +1,21 @@
+{{/*
+File: layouts/partials/func/GetISOWeek.html
+Usage: {{ partial "func/GetISOWeek.html" .Date }}
+Returns: String (e.g., "2023-W05")
+*/}}
+
+{{- $date := . -}}
+
+{{/* 1. Normalize Weekday (Mon=1 ... Sun=7) */}}
+{{- $isoDay := cond (eq $date.Weekday 0) 7 (int $date.Weekday) -}}
+
+{{/* 2. Find Thursday (ISO Week belongs to the year of its Thursday) */}}
+{{- $offset := sub 4 $isoDay -}}
+{{- $thursday := $date.AddDate 0 0 $offset -}}
+
+{{/* 3. Calculate Week Number */}}
+{{- $isoYear := $thursday.Year -}}
+{{- $isoWeek := add (div (sub $thursday.YearDay 1) 7) 1 -}}
+
+{{/* 4. Return the formatted string */}}
+{{- return printf "%04d-W%02d" $isoYear $isoWeek -}}
