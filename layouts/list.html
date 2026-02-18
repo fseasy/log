@@ -80,7 +80,7 @@
   <h3 class="week-header">
     {{/* Parse Week Number from Key "2023-W05" -> "05" */}}
     {{- $weekNum := index (split $currentWeekKey "W") 1 }}
-    <span class="week-badge">Week {{ int $weekNum }}</span>
+    <span class="week-badge">Week {{ $weekNum }}</span>
     <span class="week-label">{{ $page.Date.Format "January 2006" }}</span>
   </h3>
   <div class="posts-grid">
