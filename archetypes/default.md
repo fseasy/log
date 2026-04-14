@@ -7,6 +7,7 @@ structure_log:
   reading: "-"
   draw: "-"
   pronounce: "-"
+  sleep_quality: "-"
   wip_project: []
 ---
 
