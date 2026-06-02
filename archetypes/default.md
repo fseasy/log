@@ -9,7 +9,8 @@ structure_log:
   pronounce: "-"
   sleep_quality: "-"
   early_sleep: 0
-  wip_project: []
+  wip_project: 
+    - 
 ---
 
 ## 工作记录
